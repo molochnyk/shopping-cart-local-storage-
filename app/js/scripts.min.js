@@ -8,6 +8,7 @@ const shoppingBtn = document.querySelector('.js-shoppingBtn');
 const getShopBtnClose = shoppingBox.querySelector('.js-shoppingView');
 const goodsList = document.querySelector('.js-goodsList');
 const shoppingWrap = document.querySelector('.shopping_wrap');
+const goodsClear = document.querySelector('.js-goodsClear');
 
 
 
@@ -16,7 +17,9 @@ addEvent()
 function addEvent() {
 	shoppingBtn.addEventListener('click', shoppingView);
 	getShopBtnClose.addEventListener('click', shoppingClose);
-	goodsList.addEventListener('click',goodCart )
+	goodsList.addEventListener('click',goodCart );
+	shoppingWrap.addEventListener('click', removeProd);
+	goodsClear.addEventListener('click', goodsAllClear)
 };
 
 
@@ -51,15 +54,28 @@ function getGoodInfo(cartInfo) {
 //Добовляем товар в корзину
 function addToCart(data) {
 	const item = document.createElement('div');
+	item.className = 'shopping_item';
 	item.innerHTML = `
-		<div class="shopping_item">
-			<img src="${data.img}" width="100" alt="${data.title}">
-			<div class="shopping_item_cont">
-				<h5>${data.title}</h5>
-				<p>${data.price}грн</p>
-			</div>
-			<button data-id="${data.id}">&times;</button>
+		<img src="${data.img}" width="100" alt="${data.title}">
+		<div class="shopping_item_cont">
+			<h5>${data.title}</h5>
+			<p>${data.price}грн</p>
 		</div>
+		<button class="js-removeProd" data-id="${data.id}">&times;</button>
 	`;
 	shoppingWrap.appendChild(item);
 };
+
+//Удаляем товар из картизны по крестику
+function removeProd(e) {
+	if(e.target.classList.contains('js-removeProd')) {
+		e.target.parentElement.remove()
+	}
+}
+
+//Удаляем товарЫ из картизны по кнопке
+function goodsAllClear() {
+	while(shoppingWrap.firstElementChild) {
+		shoppingWrap.removeChild(shoppingWrap.firstElementChild)
+	}
+}
