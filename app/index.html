@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Title</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Icons IE 11, Chrome, Firefox, Safari, Opera -->
+	<link rel="icon" href="img/favicon/favicon16.png" sizes="16x16" type="image/png">
+	<link rel="icon" href="img/favicon/favicon192.png" sizes="192x192" type="image/png">
+	<!-- Touch Icons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/favicon180.png">
+	<!-- Facebook -->
+	<meta property="og:url" content="https://example.com/page.html">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Content Title">
+	<meta property="og:image" content="https://example.com/image.jpg">
+	<meta property="og:description" content="Description Here">
+	<meta property="og:site_name" content="Site Name">
+	<meta property="og:locale" content="en_US">
+	<!-- Link-Libs -->
+	<link rel="stylesheet" href="css/main.min.css">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#000">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#000">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+</head>
+
+<body>
+	<!--[if lt IE 8]>
+	<p class="browserupgrade">Вы используете <strong>старый</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите ваш браузер</a> для корректной работы сайта.</p>
+<![endif]-->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+	<header class="header">
+		<div class="container">
+			<div class="header_box">
+				<nav class="header_nav">
+					<ul class="header_menu">
+						<li class="header_menu_list">
+							<a href="#" class="header_menu_link">Home</a>
+						</li>
+						<li class="header_menu_list">
+							<a href="#" class="header_menu_link">About</a>
+						</li>
+						<li class="header_menu_list">
+							<a href="#" class="header_menu_link">Product</a>
+						</li>
+						<li class="header_menu_list">
+							<a href="#" class="header_menu_link">Contacts</a>
+						</li>
+					</ul>
+				</nav>
+				<button type="button" role="button" class="shopping_btn js-shoppingBtn">
+					<svg class="shopping_btn_icon" clip-rule="evenodd" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision"
+					  text-rendering="geometricPrecision" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+						<defs>
+							<linearGradient gradientUnits="userSpaceOnUse" id="a" x1="459.191" x2="152.597" y1="229.85" y2="229.85">
+								<stop offset="0" stop-color="#008BFF" />
+								<stop offset="1" stop-color="#0af" />
+							</linearGradient>
+						</defs>
+						<g>
+							<path d="M210 340l-56 40c-20 15-16 40 0 40h256" fill="none" stroke="#434242" stroke-linecap="round" stroke-width="20" />
+							<circle cx="390" cy="450" fill="#434242" r="20" />
+							<circle cx="147" cy="450" fill="#434242" r="20" />
+							<polyline fill="none" points="45,55 130,80 165,125" stroke="#434242" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"
+							/>
+							<path d="M449 120h-286c-3 0-6 1-8 4-2 2-2 6-2 9l55 199c1 5 5 8 10 7l214-18c5-1 8-4 9-9l18-181c0-3-1-6-3-8s-4-3-7-3z" fill="url(#a)"
+							  stroke="#434242" stroke-width="10" />
+						</g>
+					</svg>
+				</button>
+				<div class="shopping_box js-shoppingBox">
+					<button class="shopping_clear">clear cart</button>
+					<div class="shopping_wrap">
+						<!-- <div class="shopping_item">
+							<img src="img/item-1.png" width="100" alt="shop-1">
+							<div class="shopping_item_cont">
+								<h5>Bosсh GSB 21-2 RE</h5>
+								<p>1500грн</p>
+							</div>
+							<button>&times;</button>
+						</div> -->
+					</div>
+					<!-- <div class="shopping_price">
+						<p>Cart subtotal: </p>
+						<p>3000грн</p>
+					</div> -->
+					<button class="shopping_view js-shoppingView">view cart</button>
+					<button class="shopping_checkout">checkout</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<section class="good js-goodsList">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-3">
+					<div class="good_item">
+						<img src="img/item-1.png" alt="goods-1">
+						<h4>Bosсh GSB 21-2 RE</h4>
+						<p>1500грн</p>
+						<button class="js-btnBuy" data-id="1">buy</button>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="good_item">
+						<img src="img/item-2.png" alt="goods-2">
+						<h4>DWT SBM-500</h4>
+						<p>900грн</p>
+						<button class="js-btnBuy" data-id="2">buy</button>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="good_item">
+						<img src="img/item-3.png" alt="goods-3">
+						<h4>STARLEY</h4>
+						<p>2500грн</p>
+						<button class="js-btnBuy" data-id="3">buy</button>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="good_item">
+						<img src="img/item-4.png" alt="goods-4">
+						<h4>Milwaukee</h4>
+						<p>2320грн</p>
+						<button class="js-btnBuy" data-id="4">buy</button>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="good_item">
+						<img src="img/item-5.png" alt="goods-5">
+						<h4>Kolner KID 900V</h4>
+						<p>1350грн</p>
+						<button class="js-btnBuy" data-id="5">buy</button>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="good_item">
+						<img src="img/item-6.png" alt="goods-6">
+						<h4>Bosсh PSB 500 RE</h4>
+						<p>3460грн</p>
+						<button class="js-btnBuy" data-id="6">buy</button>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="good_item">
+						<img src="img/item-7.png" alt="goods-7">
+						<h4>Bosсh GSR 1440 LI</h4>
+						<p>4100грн</p>
+						<button class="js-btnBuy" data-id="7">buy</button>
+					</div>
+				</div>
+
+				<div class="col-md-3">
+					<div class="good_item">
+						<img src="img/item-8.png" alt="goods-8">
+						<h4>PROTON DZ-450</h4>
+						<p>1000грн</p>
+						<button class="js-btnBuy" data-id="8">buy</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<script src="js/scripts.min.js"></script>
+</body>
+
+</html>

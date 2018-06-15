@@ -1,0 +1,18 @@
+<svg clip-rule="evenodd" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+  viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" id="a" x1="459.191" x2="152.597" y1="229.85" y2="229.85">
+      <stop offset="0" stop-color="#008BFF" />
+      <stop offset="1" stop-color="#0af" />
+    </linearGradient>
+  </defs>
+  <g>
+    <path d="M210 340l-56 40c-20 15-16 40 0 40h256" fill="none" stroke="#434242" stroke-linecap="round" stroke-width="20" />
+    <circle cx="390" cy="450" fill="#434242" r="20" />
+    <circle cx="147" cy="450" fill="#434242" r="20" />
+    <polyline fill="none" points="45,55 130,80 165,125" stroke="#434242" stroke-linecap="round" stroke-linejoin="round" stroke-width="20"
+    />
+    <path d="M449 120h-286c-3 0-6 1-8 4-2 2-2 6-2 9l55 199c1 5 5 8 10 7l214-18c5-1 8-4 9-9l18-181c0-3-1-6-3-8s-4-3-7-3z"
+      fill="url(#a)" stroke="#434242" stroke-width="10" />
+  </g>
+</svg>
