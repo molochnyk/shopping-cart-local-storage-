@@ -1,7 +1,7 @@
 window.onload = () => {
 	
 }
-
+let prices = [];
 //-----VARIBLE
 const shoppingBox = document.querySelector('.js-shoppingBox');
 const shoppingBtn = document.querySelector('.js-shoppingBtn');
@@ -9,6 +9,7 @@ const getShopBtnClose = shoppingBox.querySelector('.js-shoppingView');
 const goodsList = document.querySelector('.js-goodsList');
 const shoppingWrap = document.querySelector('.shopping_wrap');
 const goodsClear = document.querySelector('.js-goodsClear');
+const shoppingPrice = document.querySelector('.js-shoppingNum');
 
 
 //-----LISTENERS
@@ -45,7 +46,7 @@ function getGoodInfo(cartInfo) {
 		id: cartInfo.querySelector('button').getAttribute('data-id'),
 		img: cartInfo.querySelector('img').src,
 		title: cartInfo.querySelector('h4').textContent,
-		price: cartInfo.querySelector('p').textContent
+		price: cartInfo.querySelector('p').textContent,
 	};
 	addToCart(goodData);
 };
@@ -58,11 +59,15 @@ function addToCart(data) {
 		<img src="${data.img}" width="100" alt="${data.title}">
 		<div class="shopping_item_cont">
 			<h5>${data.title}</h5>
-			<p>${data.price}грн</p>
+			<p>${data.price}</p>
 		</div>
 		<button class="js-removeProd" data-id="${data.id}">&times;</button>
 	`;
 	shoppingWrap.appendChild(item);
+
+	//Добавляем Цену Товара
+	setTotalPrice(data);
+
 	//Добавляем товар в локалСтораже
 	saveLocalStorage(data)
 };
@@ -103,7 +108,12 @@ function removeLocalStorage(id) {
       goods.splice(i, 1);
     }
   });
-  localStorage.setItem('goods', JSON.stringify(goods))
+	localStorage.setItem('goods', JSON.stringify(goods));
+
+	//--------------
+
+
+
 }
 
 
@@ -117,6 +127,10 @@ function goodsAllClear() {
 //Удаляем товарЫ из картизны по кнопке(LOCAL STORAGE)
 function clearLocalStorege() {
 	localStorage.clear()
+	
+	//--------------
+	// prices = [];
+	shoppingPrice.innerHTML = 0;
 }
 
 
@@ -130,10 +144,35 @@ function getReadyLocalStorage() {
 			<img src="${data.img}" width="100" alt="${data.title}">
 			<div class="shopping_item_cont">
 				<h5>${data.title}</h5>
-				<p>${data.price}грн</p>
+				<p>${data.price}</p>
 			</div>
 			<button class="js-removeProd" data-id="${data.id}">&times;</button>
 		`;
 		shoppingWrap.appendChild(item);
 	});
+
+	//--------------
+	if(localStorage.getItem('total') === null) {
+		shoppingPrice.innerHTML = 0;
+	} 
+	else {
+		let totalLocal = localStorage.getItem('total');	
+		prices.push(+totalLocal)
+		
+		shoppingPrice.innerHTML = `${prices.join()}`;
+	}
+	//--------------
+
+}
+
+
+//Добовляем всю цену 
+function setTotalPrice(data) {
+	let price = Number(data.price.split('грн')[0]);
+	prices.push(price);
+	let total = prices.reduce((sum, cur) => sum + cur);
+
+	//-----------------
+	shoppingPrice.innerHTML = `${total}`;
+	localStorage.setItem('total', JSON.stringify(total));
 }
