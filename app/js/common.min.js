@@ -89,7 +89,7 @@ function getLocalStorage() {
 }
 
 
-//Удаляем товар из картизны по крестику
+//Удаляем товар из корзины по крестику
 function removeProd(e) {
 	let prod;
 	let prodsID;
@@ -98,10 +98,11 @@ function removeProd(e) {
 		prod = e.target.parentElement;
 		prodsID = prod.querySelector('button').getAttribute('data-id')
 	}
-	removeLocalStorage(prodsID, prod)
+	removeLocalStorage(prodsID);
+	removeLocalStoragePrice(prod);
 }
-//Удаляем товар из картизны по крестику(LOCAL STORAGE)
-function removeLocalStorage(id, prod) {
+//Удаляем товар из корзины по крестику(LOCAL STORAGE)
+function removeLocalStorage(id) {
 	let goods = getLocalStorage();
 	goods.forEach((el, i) => {
     if(el.id === id) {
@@ -110,24 +111,25 @@ function removeLocalStorage(id, prod) {
   });
 	localStorage.setItem('goods', JSON.stringify(goods));
 
-	//--------------TOTAL PRICE
+}
+//--------------TOTAL PRICE
+function removeLocalStoragePrice(prod) {
 	let total = localStorage.getItem('total');
-
-	let itemPrice = prod.querySelector('.shopping_item_cont p').textContent;
-	console.log(itemPrice);
-
-
+	let getItemPrice = prod.querySelector('.shopping_item_cont p').textContent;
+	let itemPrice = getItemPrice.substr(0, getItemPrice.length - 3);
+	let totals = Number(total) - Number(itemPrice);
+	localStorage.setItem('total', JSON.stringify(totals));
+	shoppingPrice.innerHTML = `${totals}`;
 }
 
-
-//Удаляем товарЫ из картизны по кнопке
+//Удаляем товарЫ из корзины по кнопке
 function goodsAllClear() {
 	while(shoppingWrap.firstElementChild) {
 		shoppingWrap.removeChild(shoppingWrap.firstElementChild)
 	}
 	clearLocalStorege();
 }
-//Удаляем товарЫ из картизны по кнопке(LOCAL STORAGE)
+//Удаляем товарЫ из корзины по кнопке(LOCAL STORAGE)
 function clearLocalStorege() {
 	localStorage.clear()
 	
@@ -137,7 +139,7 @@ function clearLocalStorege() {
 }
 
 
-//ОТРИСОВУЕМ данные из ЛОКАЛ СТОДАЖА
+//отрисовываем данные из ЛОКАЛ-СТОРАЖА
 function getReadyLocalStorage() {
 	let goods = getLocalStorage();
 	goods.forEach(data => {
