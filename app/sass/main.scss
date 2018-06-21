@@ -102,7 +102,7 @@ h1,h2,h3,h4,h5,h6{
     height: 25px;
     line-height: 23px;
     border-radius: 50%;
-    background-color: rgb(206, 50, 50);
+    background-color: rgb(190, 27, 27);
     color: #fff;
   }
 }
@@ -115,7 +115,7 @@ h1,h2,h3,h4,h5,h6{
   top: 60px;
   width: 400px;
   padding: 5px;
-  background-color: rgb(97, 50, 226);
+  background-color: rgb(135, 106, 212);
   .shopping_item{
     display: flex;
     align-items: center;
@@ -177,9 +177,9 @@ h1,h2,h3,h4,h5,h6{
     color: #fff;
   }
   .shopping_clear{
-    background-color: rgb(161, 93, 93);
+    background-color: rgb(155, 65, 65);
     &:hover{
-      background-color: rgb(221, 94, 94);
+      background-color: rgb(255, 68, 68);
     }
     &:active{
       background-color: rgb(167, 64, 64);
