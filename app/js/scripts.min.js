@@ -1,6 +1,14 @@
-window.onload = () => {
-	
+const ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+-?/=_()*&^%$#@!';
+const ID_LENGTH = 10;
+const generate = () => {
+  let rtn = '';
+  for (let i = 0; i < ID_LENGTH; i++) {
+    rtn += ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
+  }
+  return rtn;
 }
+//------------------------//
+
 //-----VARIBLE
 const shoppingBox = document.querySelector('.js-shoppingBox');
 const shoppingBtn = document.querySelector('.js-shoppingBtn');
@@ -10,7 +18,6 @@ const shoppingWrap = document.querySelector('.shopping_wrap');
 const goodsClear = document.querySelector('.js-goodsClear');
 const shoppingPrice = document.querySelector('.js-shoppingNum');
 const numberGoods = document.querySelector('.js-numberGoods'); 
-
 
 //-----LISTENERS
 addEvent()
@@ -36,6 +43,8 @@ function shoppingClose() {
 function goodCart(e) {
 	if(e.target.classList.contains('js-btnBuy')) {
 		const shopCart = e.target.parentElement.parentElement;
+		let btn = e.target.parentElement.lastElementChild;
+		btn.setAttribute('data-id', generate());
 		getGoodInfo(shopCart);
 	};
 };
@@ -64,7 +73,6 @@ function addToCart(data) {
 		<button class="js-removeProd" data-id="${data.id}">&times;</button>
 	`;
 	shoppingWrap.appendChild(item);
-
 
 	//Добавляем товар в локалСтораже
 	saveLocalStorage(data);
@@ -127,9 +135,6 @@ function goodsAllClear() {
 function clearLocalStorege() {
 	localStorage.clear()
 	
-
-
-
 	//Количество товаров в корзине
 	numberGoods.textContent = 0;
 	numberGoods.style.display = 'none';
@@ -153,18 +158,9 @@ function getReadyLocalStorage() {
 		shoppingWrap.appendChild(item);
 	});
 
-
-
 	//Количество товаров в корзине
 	getLocalNumberProd()
 }
-
-
-//Добовляем всю цену 
-function setTotalPrice(data) {
-	console.log(data);
-}
-
 
 //Количество товаров в корзине
 function theNumberProducts() {
@@ -175,9 +171,6 @@ function theNumberProducts() {
 //Количество товаров в корзине(ПРОВЕРКА)
 function getLocalNumberProd() {
 	let NumberProducts = localStorage.getItem('goods');
-	// if(JSON.parse(NumberProducts).length === 0) {
-	// 	numberGoods.style.display = 'none';
-	// }
 	if(NumberProducts === null || JSON.parse(NumberProducts).length === 0) {
 		numberGoods.style.display = 'none';
 	}
