@@ -212,6 +212,78 @@ h1,h2,h3,h4,h5,h6{
   }
 }
 
+//POPUP
+.buyPopup{
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  &::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.644);
+  }
+  .buyPopup_content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 450px;
+    padding: 20px 10px 0;
+    margin: 100px auto 0;
+    background-color: rgb(255, 255, 255);
+    h3{
+      color: rgb(0, 0, 0);
+      font-size: 30px;
+      font-weight: 300;
+    }
+    .buyPopup_form{
+      width: 100%;
+      padding: 20px;
+      fieldset{
+        padding: 0;
+        border: none;
+        input{
+          margin-bottom: 15px;
+        }
+        input,button{
+          display: block;
+          width: 100%;
+          padding: 7px;
+        }
+        button{
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        }
+      }
+    }
+    .buyPopup_exit{
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 40px;
+      height: 40px;
+      font-size: 25px;
+      border-radius: 50%;
+      border: none;
+      &:hover{
+        background-color: rgb(59, 59, 59);
+        color: #fff;
+      }
+    }
+  }
+  &.is-Active{
+    display: block;
+  }
+}
+
 /*----------------*/
 /******HEADER******/
 /*----------------*/

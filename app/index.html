@@ -98,12 +98,12 @@
 							<button>&times;</button>
 						</div> -->
 					</div>
-					<div class="shopping_price">
+					<!-- <div class="shopping_price">
 						<p>Cart subtotal: </p>
 						<p><span class="js-shoppingNum">0</span> грн</p>
-					</div>
+					</div> -->
 					<button class="shopping_view js-shoppingView">view cart</button>
-					<button class="shopping_checkout">checkout</button>
+					<button class="shopping_checkout js-popup">checkout</button>
 				</div>
 			</div>
 		</div>
@@ -191,6 +191,25 @@
 
 
 
+	<div class="buyPopup js-buyPopup">
+		<div class="buyPopup_overlay">
+			<div class="buyPopup_content">
+				<button class="buyPopup_exit">&times;</button>
+				<h3>Заявка на покупку товара</h3>
+				<div class="buyPopup_product">
+
+				</div>
+				<form class="buyPopup_form">
+					<fieldset>
+						<input type="text" name="name" placeholder="name..." required>
+						<input type="email" name="email" placeholder="email..." required>
+						<input type="tel" name="tel" placeholder="tel..." required>
+						<button type="submit" class="buyPopup_form_send">send</button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
 
 	<script src="js/scripts.min.js"></script>
 </body>

@@ -17,7 +17,10 @@ const goodsList = document.querySelector('.js-goodsList');
 const shoppingWrap = document.querySelector('.shopping_wrap');
 const goodsClear = document.querySelector('.js-goodsClear');
 const shoppingPrice = document.querySelector('.js-shoppingNum');
-const numberGoods = document.querySelector('.js-numberGoods'); 
+const numberGoods = document.querySelector('.js-numberGoods');
+const popupBtnBuy = document.querySelector('.js-popup');
+const popupBuy = document.querySelector('.js-buyPopup');
+const popupBtnExit = document.querySelector('.buyPopup_exit');
 
 //-----LISTENERS
 addEvent()
@@ -27,6 +30,8 @@ function addEvent() {
 	goodsList.addEventListener('click',goodCart );
 	shoppingWrap.addEventListener('click', removeProd);
 	goodsClear.addEventListener('click', goodsAllClear);
+	popupBtnBuy.addEventListener('click', handlerBtnBuy);
+	popupBtnExit.addEventListener('click', handlerBtnExitPopup);
 	document.addEventListener("DOMContentLoaded", getReadyLocalStorage);
 };
 
@@ -178,4 +183,16 @@ function getLocalNumberProd() {
 		numberGoods.style.display = 'block';
 		theNumberProducts();
 	}
+}
+
+//Попап покупки
+function handlerBtnBuy() {
+	popupBuy.classList.toggle('is-Active');
+	shoppingBox.classList.toggle('isActive');
+
+
+
+}
+function handlerBtnExitPopup() {
+	popupBuy.classList.toggle('is-Active');
 }
