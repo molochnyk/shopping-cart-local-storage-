@@ -83,6 +83,9 @@ function addToCart(data) {
 	saveLocalStorage(data);
 	//Количество товаров в корзине
 	getLocalNumberProd();
+
+	//disabled если товаров нет
+	disablPopupBtn();
 };
 //Запись ЛОКАЛ СТОРАЖ
 function saveLocalStorage(data) {
@@ -115,6 +118,9 @@ function removeProd(e) {
 
 	//Количество товаров в корзине
 	getLocalNumberProd();
+
+	//disabled если товаров нет
+	disablPopupBtn();
 }
 //Удаляем товар из корзины по крестику(LOCAL STORAGE)
 function removeLocalStorage(id) {
@@ -135,6 +141,9 @@ function goodsAllClear() {
 		shoppingWrap.removeChild(shoppingWrap.firstElementChild)
 	}
 	clearLocalStorege();
+
+	//disabled если товаров нет
+	disablPopupBtn();
 }
 //Удаляем товарЫ из корзины по кнопке(LOCAL STORAGE)
 function clearLocalStorege() {
@@ -165,6 +174,9 @@ function getReadyLocalStorage() {
 
 	//Количество товаров в корзине
 	getLocalNumberProd()
+
+	//disabled если товаров нет
+	disablPopupBtn();
 }
 
 //Количество товаров в корзине
@@ -189,10 +201,18 @@ function getLocalNumberProd() {
 function handlerBtnBuy() {
 	popupBuy.classList.toggle('is-Active');
 	shoppingBox.classList.toggle('isActive');
-
-
-
 }
 function handlerBtnExitPopup() {
 	popupBuy.classList.toggle('is-Active');
+}
+
+//disabled если товаров нет
+function disablPopupBtn() {
+	let NumberProducts = localStorage.getItem('goods');
+	if(NumberProducts === null || JSON.parse(NumberProducts).length === 0) {
+		console.log('ERROR')
+	}
+	else {
+		console.log('EXELENT')
+	}
 }
